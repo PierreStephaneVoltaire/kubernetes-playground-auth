@@ -45,14 +45,6 @@ resource "aws_iam_role" "jenkins_authenticated_role" {
     ]
   })
 }
-resource "random_password" "jenkins_password" {
-  for_each    = var.users
-  length      = 12
-  min_special = 4
-  special     = true
-  numeric     = true
-  min_numeric = 2
-}
 
 
 resource "aws_cognito_user_in_group" "jenkins_user_groups" {

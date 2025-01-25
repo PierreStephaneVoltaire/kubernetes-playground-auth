@@ -37,8 +37,16 @@ output "argo_app_client_secret" {
 output "jenkins_app_client_id" {
   value = aws_cognito_user_pool_client.jenkins_auth.id
 }
-output "jenkins__app_client_secret" {
+output "jenkins_app_client_secret" {
   value     = aws_cognito_user_pool_client.jenkins_auth.client_secret
+  sensitive = true
+
+}
+output "vault_app_client_id" {
+  value = aws_cognito_user_pool_client.vault_auth.id
+}
+output "vault_app_client_secret" {
+  value     = aws_cognito_user_pool_client.vault_auth.client_secret
   sensitive = true
 
 }
