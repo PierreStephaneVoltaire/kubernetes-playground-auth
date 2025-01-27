@@ -3,6 +3,15 @@ resource "aws_cognito_user_pool" "auth" {
   name                     = "${var.app_name}-user-pool"
   username_attributes      = ["email"]
   auto_verified_attributes = ["email"]
+  schema {
+    attribute_data_type = "String"
+    name               = "groups"
+    developer_only_attribute = false
+    required           = false
+    mutable            = false
+    string_attribute_constraints {}
+
+  }
 
 }
 resource "random_password" "user_password" {
